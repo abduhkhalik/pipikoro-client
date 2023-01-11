@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/output.css">
+  <link rel="stylesheet" href="/src/style.css">
+  <title>Halaman Daftar Menu</title>
+</head>
+
+<body class="background">
+
+  <!-- Header start -->
+  <nav class="bg-transparent absolute top-0 left-0 w-full flex 
+  items-center z-[9999]">
+     <div class="container">
+       <div class="flex items-center justify-between relative">
+         <div class="px-4 py-4">
+           <a href="/wellcome"><img src="/Assets/logo.png" width="150px" height="150px" alt="Logo"></a>
+         </div>
+         <div class="flex items-center px-4">
+           <button id="hamburger" type="button" name="hamburger
+          " class="block absolute right-4 lg:hidden">
+             <span class="hamburger-line transition duration-300
+            ease-in-out origin-top-left"></span>
+             <span class="hamburger-line transition duration-300
+            ease-in-out"></span>
+             <span class="hamburger-line transition duration-300
+            ease-in-out origin-bottom-left"></span>
+           </button>
+           <div id="navitems"
+             class="hidden absolute py-5 bg-white shadow-lg -mt-3 lg:-mt-0 rounded-lg max-w-[220px] w-full right-4 top-full lg:static lg:max-w-full lg:block lg:bg-transparent lg:shadow-none">
+             <ul class="block lg:flex lg:items-center">
+               <li class="group">
+                 <a href="#home"
+                   class="text-slate-800 transition duration-30 ease-in-out py-2 mx-8 flex group-hover:text-teal-500">Home</a>
+               </li>
+               <li class="group">
+                 <a href="/menu"
+                   class="text-slate-800 transition duration-300 ease-in-out py-2 mx-8 flex group-hover:text-teal-500">Menu</a>
+               </li>
+               <li class="group">
+                 <a href="#about"
+                   class="text-slate-800 transition duration-300 ease-in-out py-2 mx-8 flex group-hover:text-teal-500">About</a>
+               </li>
+               <li class="group">
+                 <a href="#contact"
+                   class="text-slate-800 transition duration-300 ease-in-out py-2 mx-8 flex group-hover:text-teal-500">Contact</a>
+               </li>
+               <li class="group relative">
+                 <button id="navcart" type="button" class="py-2 mx-8 flex items-center"><img src="/Assets/cart3.svg"
+                     class="w-[30px]" fill="currentColor" alt="Charts">
+                 </button>
+                 <div id="cartamount"
+                   class="px-2 top-0 right-3 cursor-pointer bg-slate-800 text-white rounded-xl absolute">0
+                 </div>
+               </li>
+               <li class="group dropdown-user text-center">
+                 <button class="flex items-center py-2 mx-8 group-hover:text-teal-500"><img src="/Assets/user1.svg"
+                     fill="currentColor" class="w-[30px]" alt="user">
+                   <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                     fill="currentColor" aria-hidden="true">
+                     <path fill-rule="evenodd"
+                       d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                       clip-rule="evenodd" />
+                     </button>
+                     <div id="textuser"> <script>
+                       fetch("/namauser")
+                         .then(response => response.text())
+                         .then(data => {
+                           document.getElementById("textuser").innerHTML = data;
+                         });
+                     </script>
+                   </div>
+                 <ul class="dropdown-list hidden px-4 py-2 bg-white absolute rounded-lg">
+                   <li class="mb-3">
+                     <a href="/logout" class="hover:text-teal-500">Log Out</a>
+                   </li>
+                 </ul>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </div>
+   </nav>
+   <!-- Header End -->
+
+  <!-- Section Daftar Menu Minuman Start-->
+  <section class="pt-36 pb-24">
+    <div class="container">
+      <h3 class="daftar-menu text-2xl lg:text-5xl font-bold text-slate-800 text-center mt-5">Daftar Menu</h3>
+      <div class="flex flex-wrap justify-center mt-3 mb-5">
+        <button class="nav-link font-bold mr-4 hover:text-teal-500" data-kategori="minuman">Minuman</button>
+        <button class="nav-link font-bold ml-4 hover:text-teal-500" data-kategori="makanan">Makanan</button>
+      </div>
+      <div id="cardsMenu" class="flex flex-wrap items-center gap-[15px] justify-center">
+        <!-- Menu 1 Start-->
+        
+        <!-- Menu 1 End -->
+      </div>
+    </div>
+  </section>
+  <!-- Section Daftar Menu Minuman End-->
+
+  <!-- Section Carts -->
+  <section id="cart" class="relative z-[9999] hidden" aria-labelledby="listCart" role="dialog"
+    aria-modal="true">
+
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <div class="fixed inset-0 overflow-hidden">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+
+          <div class="pointer-events-auto w-screen max-w-md">
+            <div  class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+              <div class="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+                <div class="flex items-start justify-between border-b border-gray-200">
+                  <h2 class="text-lg font-medium text-gray-900" id="listCart">List cart</h2>
+                  <div class="ml-3 flex h-7 items-center">
+                    <button id="btn-x" type="button" class="-m-2 p-2 text-gray-400 hover:text-gray-500">
+                      <span class="sr-only">Close panel</span>
+                      <!-- Heroicon name: outline/x-mark -->
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                
+                   <!-- cart item start-->
+                <div id="cartContent" class="mt-8">
+                  
+                </div>
+                <!-- cart item end -->
+                
+               
+              </div>
+              <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
+                <div class="flex justify-between text-base font-medium text-gray-900">
+                  <p>Subtotal</p>
+                  <p id="totalprice"></p>
+                </div>
+                <div class="flex flex-wrap">
+                  <p class="text-base font-bold mr-2">Meja</p>
+                  <div class="relative">
+                    <select
+                      class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                      id="meja">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-0.5 text-sm text-gray-500">Sudah termasuk ppn 11%.</p>
+                <div class="mt-6">
+                  <a id="btn-checkout" href="/public/pembayaran.html" onclick=""
+                    class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section Carts -->
+
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="/src/data.js"></script>
+  <script src="/src/cart.js"></script>
+</body>
+
+</html>

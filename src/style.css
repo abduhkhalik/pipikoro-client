@@ -1,0 +1,18 @@
+  /* Menu */
+.kategori {
+width : 250px;
+}
+
+#logocart {
+width : 25px;
+}
+
+  /* Loading */
+
+#loading {
+  position: fixed;
+  background: #000 url('/Assets/loading.gif') no-repeat center center;
+  height: 100%;
+  width: 100%;
+  z-index: 99999;
+}
